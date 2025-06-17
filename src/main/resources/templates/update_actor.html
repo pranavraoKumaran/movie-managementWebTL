@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Movie Management System</title>
+  <link rel="stylesheet" href="styles.css">
+ 
+</head>
+<body>
+<h1>Movie Management System</h1>
+<hr>
+<h2>Update Actor</h2>
+
+<form action="#" th:action="@{/addactor}" th:object="${actor}"
+method="POST">
+
+<input type="hidden" th:field="*{actorId}">
+<input type="text" th:field="*{actorName}">
+<input type="text" th:field="*{actorRole}">
+
+<button type="submit">Update Actor</button>
+
+
+
+</form>
+
+</body>
+</html>

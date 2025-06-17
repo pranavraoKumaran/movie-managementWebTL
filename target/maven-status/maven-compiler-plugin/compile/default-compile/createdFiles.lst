@@ -1,0 +1,12 @@
+com\moviemanagement\movie_management\service\ActorService.class
+com\moviemanagement\movie_management\model\Genre.class
+com\moviemanagement\movie_management\ServletInitializer.class
+com\moviemanagement\movie_management\model\Movie.class
+com\moviemanagement\movie_management\model\Actor.class
+com\moviemanagement\movie_management\controller\MovieController.class
+com\moviemanagement\movie_management\repository\ActorRepository.class
+com\moviemanagement\movie_management\repository\GenreRepository.class
+com\moviemanagement\movie_management\MovieManagementApplication.class
+com\moviemanagement\movie_management\service\GenreService.class
+com\moviemanagement\movie_management\repository\MovieRepository.class
+com\moviemanagement\movie_management\service\MovieService.class

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Display all Movies</title>
+<style>
+    /* Styling the entire page */
+    body {
+        font-family: Arial, sans-serif;
+        background: #1e1e1e;
+        color: white;
+        text-align: center;
+        margin: 20px;
+    }
+
+    /* Headers */
+    h2 {
+        color: #ffcc00;
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+
+    /* Styling tables */
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background: #2a2a2a;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    /* Styling table headers */
+    th {
+        background: #ffcc00;
+        color: black;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    /* Styling table data */
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #555;
+    }
+
+    /* Buttons */
+    button {
+        background: #ffcc00;
+        color: black;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ffa500;
+    }
+
+    /* Links */
+    a {
+        text-decoration: none;
+    }
+</style>
+</head>
+<body>
+    
+    <h2>Movie List</h2>
+    <a href="/home"><button>Go Back</button></a>
+    <table border="200">
+    
+    <tr> 
+        <th>Movie Id:</th>
+        <th>Movie Title:</th>
+        <th>Movie Description:</th>
+        <th>Movie Duration:</th>
+        <th>Movie Release Year:</th>
+        <th>Actions:</th>
+    </tr>
+    <tr th:each="movie : ${movies}">
+     	<td th:text="${movie.movieId}"></td>
+        <td th:text="${movie.movieTitle}"></td>
+        <td th:text="${movie.movieDescription}"></td>
+        <td th:text="${movie.movieDuration}"></td>
+        <td th:text="${movie.movieReleaseYear}"></td>
+    
+    <td>
+        <a th:href="@{showFormForUpdateMovie/{id}(id=${movie.movieId})}"><button type="submit">Update</button></a>
+   <!--  </td>
+    <td> -->
+    &nbsp;&nbsp;&nbsp;
+        <a th:href="@{deleteMovie/{id}(id=${movie.movieId})}"><button type="submit">Delete</button></a>
+    </td>
+    </tr>
+    </table>
+    
+    <h2>Genre List</h2>
+    <table border="200">
+    
+    <tr> 
+        <th>Genre Id:</th>
+        <th>Genre Name:</th>
+        <th>Actions:</th>
+    </tr>
+    <tr th:each="genre : ${genres}">
+        <td th:text="${genre.genreId}"></td>
+        <td th:text="${genre.genreName}"></td>
+        <td>
+        <a th:href="@{showFormForUpdateGenre/{id}(id=${genre.genreId})}"><button type="submit">Update</button></a>
+<!--         </td>
+        <td> -->
+            &nbsp;&nbsp;&nbsp;
+        
+        <a th:href="@{deleteGenre/{id}(id=${genre.genreId})}"><button type="submit">Delete</button></a>
+        </td>
+    </tr>
+    </table>
+    
+    <h2>Actor List</h2>
+    <table border="200">
+    
+    <tr> 
+        <th>Actor Id:</th>
+        <th>Actor Name:</th>
+        <th>Actor Role:</th>
+        <th>Actions:</th>
+    </tr>
+    <tr th:each="actor : ${actors}">
+        <td th:text="${actor.actorId}"></td>
+        <td th:text="${actor.actorName}"></td>
+        <td th:text="${actor.actorRole}"></td>
+        <td>
+        <a th:href="@{showFormForUpdateActor/{id}(id=${actor.actorId})}"><button type="submit">Update</button></a>
+<!--         </td>
+        <td>
+ -->            &nbsp;&nbsp;&nbsp;
+ 
+ <a th:href="@{deleteActor/{id}(id=${actor.actorId})}"><button type="submit">Delete</button></a>
+        </td>
+    </tr>
+    </table>
+    
+</body>
+</html>

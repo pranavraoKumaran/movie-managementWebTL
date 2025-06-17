@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Actor</title>
+<style>
+    /* Styling the entire page */
+    body {
+        font-family: Arial, sans-serif;
+        background: #1e1e1e;
+        color: white;
+        text-align: center;
+        margin: 20px;
+    }
+
+    /* Headers */
+    h2 {
+        color: #ffcc00;
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+
+    /* Styling tables */
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background: #2a2a2a;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    /* Styling table headers */
+    th {
+        background: #ffcc00;
+        color: black;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    /* Styling table data */
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #555;
+    }
+
+    /* Buttons */
+    button {
+        background: #ffcc00;
+        color: black;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ffa500;
+    }
+
+    /* Links */
+    a {
+        text-decoration: none;
+    }
+</style>
+
+</head>
+<body>
+<h1>Add New Actor</h1>
+
+<a href="/home"><button>Go Back</button></a>
+<form action="#" method="post" th:action="@{/addactor}" th:object="${actor}">
+
+<table>
+	<tr>
+			<td>Actor Name:</td>
+			<td><input type="text" th:field="*{actorName}" /></td>
+	</tr>
+	<tr>
+			<td>Actor Role:</td>
+			<td><input type="text" th:field="*{actorRole}" /></td>
+	</tr>
+	<tr>
+				<td>Movie:</td>
+				<td>
+						 <select th:field="*{movie}">
+						<option th:each="movie : ${movies}" th:value="${movie.movieId}" th:text="${movie.movieTitle}" ></option>
+					</select>
+	</td>
+			</tr>
+</table>
+	
+	<input type="submit" value="SaveActor"/>
+</form>
+</body>
+</html>
