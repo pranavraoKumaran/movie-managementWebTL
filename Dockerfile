@@ -25,4 +25,4 @@ COPY --from=builder /app/target/*.war movie-management.war
 EXPOSE 9093:8080
  
 # Define the entrypoint to run the application
-ENTRYPOINT ["java", "-war", "movie-management.war"]
+ENTRYPOINT ["java", "-jar", "movie-management.war"]
